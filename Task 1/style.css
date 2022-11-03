@@ -16,11 +16,11 @@ body {
     justify-content: center;
     padding:10px;
 }
-
+ 
 .cont {
     float: left;
     width: 760px;
-    max-height: 500px;
+    max-height: 700px;
     background: rgb(24, 161, 207);
     padding: 20px;
     box-shadow: 5px 5px 10px rgb(190, 5, 55);
@@ -92,7 +92,7 @@ header h1 {
     background: linear-gradient(to bottom,  #B66BA6 0%, #a634e9 100%);
 }
 
-.container .todoList {
+.cont .todoList {
     height: fit-content;
     max-height: 100px;
     margin: 10px 0;
@@ -102,7 +102,7 @@ header h1 {
    
 }
 
-.List li {
+.todoList li {
     list-style: none;
     height: auto;
     max-height: max-content;
@@ -115,7 +115,7 @@ header h1 {
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
 }
 
-.List li span {
+.todoList li span {
     position: absolute;
     margin-left: 10px;
     top: 0px;
@@ -125,17 +125,17 @@ header h1 {
     padding: 0 6px;
 }
 
-.List li .done {
+.todoList li .done {
     top: 0;
     right: 35px;
     color: rgb(7, 168, 37);
 }
 
-.List li:hover {
+.todoList li:hover {
     background-color: #ccc;
 }
 
-.List li:hover span {
+.todoList li:hover span {
     background-color: #ccc;
     cursor: pointer;
 }
