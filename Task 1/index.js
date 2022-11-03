@@ -1,11 +1,11 @@
 const inputText = document.querySelector(".input input");
 const addvalue = document.querySelector(".input button");
-const List = document.querySelector(".List");
+const todoList = document.querySelector(".todoList");
 
 inputText.onkeyup = () => {
-    let textData = inputText.value;
+    let getType = inputText.value;
 
-    if (textData.trim() != 0) {
+    if (getType.trim() != 0) {
         addvalue.classList.add("active");
     }
     else {
@@ -16,70 +16,69 @@ inputText.onkeyup = () => {
 doList();
 
 addvalue.onclick = () => {
-    let textData = inputText.value;
+    let getType = inputText.value;
 
-    if (textData != '') {
-        let getType = lsr.getItem("New List"); 
+    if (getType != '') {
+        let memo = localStorage.getItem("New List");
 
-        if (getType === null) {
+        if (memo === null) {
             todoArr = [];
         }
         else {
-            todoArr = JSON.parse(getType);
+            todoArr = JSON.parse(memo);
         }
 
-        todoArr.push(textData);
-        lsr.setItem("New List", JSON.stringify(todoArr));
+        todoArr.push(getType);
+        localStorage.setItem("New List", JSON.stringify(todoArr));
         doList();
     }
     else {
-        alert("Error: Please fill the List, there is no any items!")
-       
+        alert("There is nothing in list please enter!")
     }
 }
 
 function doList() {
-    let getType = lsr.getItem("New List");
+    let memo = localStorage.getItem("New List");
 
-    if (getType == null) {
+    if (memo == null) {
         todoArr = [];
     }
     else {
-        todoArr = JSON.parse(getType);
+        todoArr = JSON.parse(memo);
     }
 
-    let newLiTag = '';
+    let newList = '';
     todoArr.forEach((element, index) => {
-         newLiTag += `<li>${element}<span class="done" onclick="done(${index})"><i class="fa-solid fa-circle-check"></i></span> <span onclick="Delete(${index})"><i class="fa-solid fa-trash-can"></i></span></li>`;
+        newList += `<li>${element}<span class="done" onclick="done(${index})"><i class="fa-solid fa-thumbs-up"></i></span> <span onclick="Delete(${index})"><i class="fa-solid fa-trash-can"></i></span></li>`;
     });
 
-    List.innerHTML = newLiTag;
+    todoList.innerHTML = newList;
     inputText.value = '';
 }
 
 function Delete(index) {
-    let getType = lsr.getItem("New List");
-    todoArr = JSON.parse(getType);
+    let memo = localStorage.getItem("New List");
+    todoArr = JSON.parse(memo);
 
     todoArr.splice(index, 1);
-    lsr.setItem("New List", JSON.stringify(todoArr));
+    localStorage.setItem("New List", JSON.stringify(todoArr));
     doList();
 }
 
 
 function done(index) {
-    let getType = lsr.getItem("New List");
-    todoArr = JSON.parse(getType);
+    let memo = localStorage.getItem("New List");
+    todoArr = JSON.parse(memo);
 
     todoArr[index] = todoArr[index].strike();
-    lsr.setItem("New List", JSON.stringify(todoArr));
+    localStorage.setItem("New List", JSON.stringify(todoArr));
     doList();
 
 }
 
-clearBtn.onclick = () => {
-    lsr.removeItem("New List");
+clearAllBtn.onclick = () => {
+    localStorage.removeItem("New List");
     addvalue.classList.remove("active");
-    clearBtn.classList.remove("active");
+    clearAllBtn.classList.remove("active");
     doList();
 }
