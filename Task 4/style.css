@@ -1,0 +1,90 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;  
+}
+.Container{
+  display: flex;
+  height: 86vh;
+  justify-content: center;
+  align-items: center;
+  position:static;
+  background-image: url("./hed.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+header h1 {
+  text-align: center;
+  font-size: 40px;
+  color: white;
+}
+
+header {
+  padding: 30px;
+  background-image: url("./hd.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 2px;
+}
+
+.calc{
+  padding: 1.4em;
+  background: rgb(239, 97, 97);
+  border-radius: 1em;
+  box-shadow: 5px 5px 5px rgb(74, 79, 79), -5px -5px 5px rgb(72, 75, 77);
+  
+}
+.button{
+  width: 66px;
+  padding: 20px;
+  margin: 12px;
+  border: 2px solid #ecf0f3;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 1.2em;
+  color: rgb(251, 240, 255);
+  background-color: rgb(39, 25, 160);
+}
+
+.row{
+  margin: 4px 0;
+}
+.row input{
+ 
+  width: 400px;
+  font-size: 20px;
+    margin: 0;
+    padding: 15px 0px;
+    border-radius: 5px;
+}
+input{
+  text-align: end;
+  background-color: #ecf0f3;
+}
+.text-center{
+  text-align: center;
+}
+
+
+.mx-auto{
+  margin: auto;
+}
+
+.flex{
+  display:flex;
+} 
+.flex-col{
+  flex-direction: column;
+}
+
+.items-center{
+  align-items: center;
+}
+.Sidebtn-color{
+  color: rgb(255, 255, 255);
+  background-color:rgb(76, 158, 239);
+}
+.red-color{
+  color: white;
+  background-color: rgb(40, 242, 97);
+}
